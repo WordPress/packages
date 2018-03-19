@@ -1,7 +1,7 @@
 {
-	"name": "@wordpress/jest-preset-wpcs",
+	"name": "@wordpress/jest-preset-node",
 	"version": "1.0.0-alpha",
-	"description": "Jest preset for WordPress Coding Standards Node.js repositories",
+	"description": "Jest preset for WordPress Node.js repositories",
 	"author": "WordPress",
 	"license": "GPL-2.0-or-later",
 	"keywords": [
@@ -9,10 +9,9 @@
 		"jest",
 		"jest-preset",
 		"node",
-		"preset",
-		"wpcs"
+		"preset"
 	],
-	"homepage": "https://github.com/WordPress/packages/tree/master/packages/jest-preset-wpcs/README.md",
+	"homepage": "https://github.com/WordPress/packages/tree/master/packages/jest-preset-node/README.md",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/WordPress/packages.git"

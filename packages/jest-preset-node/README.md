@@ -1,13 +1,13 @@
-# @wordpress/jest-preset-wpcs
+# @wordpress/jest-preset-node
 
-[Jest](https://facebook.github.io/jest/) preset for [WordPress Coding Standards](https://github.com/WordPress-Coding-Standards) with a [Node.js](https://nodejs.org/en/) based repository.
+[Jest](https://facebook.github.io/jest/) Jest preset for WordPress [Node.js](https://nodejs.org/en/) repositories.
 
 ## Installation
 
 Install the module
 
 ```bash
-npm install @wordpress/jest-preset-wpcs --save-dev
+npm install @wordpress/jest-preset-node --save-dev
 ```
 
 ## Setup
@@ -16,7 +16,7 @@ npm install @wordpress/jest-preset-wpcs --save-dev
 
 ```json
 {
-  "preset": "@wordpress/jest-preset-wpcs"
+  "preset": "@wordpress/jest-preset-node"
 }
 ```
 
