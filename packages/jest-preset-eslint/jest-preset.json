@@ -1,0 +1,7 @@
+{
+	"runner": "jest-runner-eslint",
+	"testEnvironment": "node",
+	"testMatch": [
+		"<rootDir>/**/*.js"
+	]
+}
