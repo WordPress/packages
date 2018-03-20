@@ -5,6 +5,5 @@
 	"testEnvironment": "node",
 	"testMatch": [
 		"**/?(*.)(spec|test).js"
-	],
-	"verbose": true
+	]
 }

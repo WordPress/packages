@@ -30,6 +30,4 @@ npm install @wordpress/jest-preset-node --save-dev
 
 * `testMatch`- detects only test files containing a `.spec.js` or `.test.js` file extension.
 
-* `verbose` - each individual test will be reported during the run.
-
 <br/><br/><p align="center"><img src="https://s.w.org/style/images/codeispoetry.png?1" alt="Code is Poetry." /></p>
