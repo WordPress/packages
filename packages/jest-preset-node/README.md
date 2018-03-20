@@ -1,6 +1,6 @@
 # @wordpress/jest-preset-node
 
-[Jest](https://facebook.github.io/jest/) Jest preset for WordPress [Node.js](https://nodejs.org/en/) repositories.
+[Jest](https://facebook.github.io/jest/) preset for WordPress [Node.js](https://nodejs.org/en/) repositories.
 
 ## Installation
 
