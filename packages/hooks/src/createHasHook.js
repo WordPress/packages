@@ -17,10 +17,11 @@ function createHasHook( hooks ) {
 	 * @return {boolean} Whether there are handlers that are attached to the given hook.
 	 */
 	return function hasHook( hookName, namespace ) {
-
 		// Use the namespace if provided.
 		if ( 'undefined' !== typeof namespace ){
-			return hookName in hooks && namespace in hooks[ hookName ];
+			return hookName in hooks &&
+				hooks[ hookName ].handlers &&
+				hooks[ hookName ].handlers.map( hook => hook['namespace'] ).includes( namespace );
 		}
 
 		return hookName in hooks;
