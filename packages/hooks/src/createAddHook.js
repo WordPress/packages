@@ -1,5 +1,6 @@
 import validateNamespace from './validateNamespace.js';
 import validateHookName from './validateHookName.js';
+import extractNamespace from './extractNamespace.js';
 import { doAction } from './';
 
 /**
@@ -13,18 +14,21 @@ function createAddHook( hooks ) {
 	/**
 	 * Adds the hook to the appropriate hooks container.
 	 *
-	 * @param {string}   hookName  Name of hook to add
-	 * @param {string}   namespace The unique namespace identifying the callback in the form `vendor/plugin/function`.
+	 * @param {string}   hookName  Name of hook to add. Optionally, use a period to add a
+	 * namespace identifying the callback in the form `hookName.vendor/plugin/function`.
 	 * @param {Function} callback  Function to call when the hook is run
 	 * @param {?number}  priority  Priority of this hook (default=10)
 	 */
-	return function addHook( hookName, namespace, callback, priority = 10 ) {
+	return function addHook( hookName, callback, priority = 10 ) {
 
 		if ( ! validateHookName( hookName ) ) {
 			return;
 		}
 
-		if ( ! validateNamespace( namespace ) ) {
+		// Extract the namespace, if provided.
+		const namespace = extractNamespace( hookName )
+
+		if ( namespace && ! validateNamespace( namespace ) ) {
 			return;
 		}
 
@@ -33,7 +37,7 @@ function createAddHook( hooks ) {
 			return;
 		}
 
-		// Validate numeric priority
+		// Validate numeric priority.
 		if ( 'number' !== typeof priority ) {
 			console.error( 'If specified, the hook priority must be a number.' );
 			return;
