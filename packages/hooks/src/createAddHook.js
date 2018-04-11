@@ -26,7 +26,7 @@ function createAddHook( hooks ) {
 		}
 
 		// Extract the namespace, if provided.
-		const namespace = extractNamespace( hookName )
+		const namespace = extractNamespace( hookName );
 
 		if ( namespace && ! validateNamespace( namespace ) ) {
 			return;
