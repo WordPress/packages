@@ -1,4 +1,5 @@
 import extractNamespace from './extractNamespace.js';
+import extractHookname from './extractHookname.js';
 
 /**
  * Returns a function which, when invoked, will return whether any handlers are
@@ -22,6 +23,8 @@ function createHasHook( hooks ) {
 
 		// Extract the namespace, if provided.
 		const namespace = extractNamespace( hookName );
+
+		hookName = extractHookname( hookName );
 
 		// Use the namespace if provided.
 		if ( 'undefined' !== typeof namespace ){

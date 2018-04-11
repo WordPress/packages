@@ -1,6 +1,7 @@
 import validateNamespace from './validateNamespace.js';
 import validateHookName from './validateHookName.js';
 import extractNamespace from './extractNamespace.js';
+import extractHookname from './extractHookname.js';
 import { doAction } from './';
 
 /**
@@ -17,19 +18,21 @@ function createRemoveHook( hooks, removeAll ) {
 	 * Removes the specified callback (or all callbacks) from the hook with a
 	 * given hookName and namespace.
 	 *
-	 * @param {string} hookName  Name of hook to add. Optionally, use a period to add a
+	 * @param {string} hookName Name of hook to add. Optionally, use a period to add a
 	 * namespace identifying the callback in the form `hookName.vendor/plugin/function`.
 	 *
 	 * @return {number}             The number of callbacks removed.
 	 */
 	return function removeHook( hookName ) {
+		// Extract the namespace, if provided.
+		const namespace = extractNamespace( hookName );
+
+		hookName = extractHookname( hookName );
 
 		if ( ! validateHookName( hookName ) ) {
 			return;
 		}
 
-		// Extract the namespace, if provided.
-		const namespace = extractNamespace( hookName );
 
 		// Remove all hooks on hookName when calling without a namespace.
 		if ( ! namespace ) {

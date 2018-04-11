@@ -1,6 +1,7 @@
 import validateNamespace from './validateNamespace.js';
 import validateHookName from './validateHookName.js';
 import extractNamespace from './extractNamespace.js';
+import extractHookname from './extractHookname.js';
 import { doAction } from './';
 
 /**
@@ -20,13 +21,15 @@ function createAddHook( hooks ) {
 	 * @param {?number}  priority  Priority of this hook (default=10)
 	 */
 	return function addHook( hookName, callback, priority = 10 ) {
+		// Extract the namespace, if provided.
+		const namespace = extractNamespace( hookName );
+
+		hookName = extractHookname( hookName );
 
 		if ( ! validateHookName( hookName ) ) {
 			return;
 		}
 
-		// Extract the namespace, if provided.
-		const namespace = extractNamespace( hookName );
 
 		if ( namespace && ! validateNamespace( namespace ) ) {
 			return;
