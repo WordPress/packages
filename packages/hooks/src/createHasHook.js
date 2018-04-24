@@ -12,7 +12,8 @@ function createHasHook( hooks ) {
 	 * Returns whether any handlers are attached for the given hookName and optional namespace.
 	 *
 	 * @param {string}   hookName  Name of hook to add.
-	 * @param {?string}  namespace The unique namespace identifying the callback in the form `vendor/plugin/function`.
+	 * @param {?string}  namespace The unique namespace identifying the callback in the
+	 *                             form `vendor/plugin/function`. Optional.
 	 *
 	 * @return {boolean} Whether there are handlers that are attached to the given hook.
 	 */
