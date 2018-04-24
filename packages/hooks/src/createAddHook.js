@@ -14,7 +14,7 @@ function createAddHook( hooks ) {
 	 * Adds the hook to the appropriate hooks container.
 	 *
 	 * @param {string}   hookName  Name of hook to add.
-	 * @param {?string}  namespace Namespace identifying the callback in the form `vendor/plugin/function`
+	 * @param {?string}  namespace The unique namespace identifying the callback in the form `vendor/plugin/function`.
 	 * @param {Function} callback  Function to call when the hook is run
 	 * @param {?number}  priority  Priority of this hook (default=10)
 	 */

@@ -24,16 +24,16 @@ When adding a hooked action or filter, best practice is to add a namespace in th
 * `createHooks()`
 
 // Add an action callback, with an optional namespace.
-* `addAction( 'hookName(.namespace)', callback, priority )` 
+* `addAction( 'hookName', (namespace), callback, priority )` 
 
 // Add a filter callback, with an optional namespace.
-* `addFilter( 'hookName(.namespace)', callback, priority )` 
+* `addFilter( 'hookName', (namespace), callback, priority )` 
 
 // Remove all callbacks hooked on hookName.namespace. Removes all action callbacks hooked on hookName when namespace is omitted.
-* `removeAction( 'hookName(.namespace)', 'functionName' )` 
+* `removeAction( 'hookName', (namespace), 'functionName' )` 
 
 // Remove all callbacks hooked on hookName.namespace. Removes all filter callbacks hooked on hookName when namespace is omitted.
-* `removeFilter( 'hookName(.namespace)', 'functionName' )` 
+* `removeFilter( 'hookName', (namespace), 'functionName' )` 
 
 // Remove all action callbacks hooked on hookName.
 * `removeAllActions( 'hookName' )`
@@ -60,10 +60,10 @@ When adding a hooked action or filter, best practice is to add a namespace in th
 * `didFilter( 'hookName' )`
 
 // Check if an action callback has been registered on hookName.namespace, or on hookName if namespace is omitted.
-* `hasAction( 'hookName(.namespace)' )`
+* `hasAction( 'hookName', (namespace) )`
 
 // Check if a filter callback has been registered on hookName.namespace, or on hookName if namespace is omitted.
-* `hasFilter( 'hookName(.namespace)' )`
+* `hasFilter( 'hookName', (namespace) )`
 * `actions`
 * `filters`
 
