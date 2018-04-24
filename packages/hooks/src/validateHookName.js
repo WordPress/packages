@@ -2,7 +2,7 @@
  * Validate a hookName string.
  *
  * @param  {string} hookName The hook name to validate. Should be a non empty string containing
- *                           only numbers, letters, dashes and underscores. Also,
+ *                           only numbers, letters, dashes, periods and underscores. Also,
  *                           the hook name cannot begin with `__`.
  *
  * @return {bool}            Whether the hook name is valid.
@@ -19,8 +19,8 @@ function validateHookName( hookName ) {
 		return false;
 	}
 
-	if ( ! /^[a-zA-Z][a-zA-Z0-9_-]*$/.test( hookName ) ) {
-		console.error( 'The hook name can only contain numbers, letters, dashes and underscores.' );
+	if ( ! /^[a-zA-Z][a-zA-Z0-9_.-]*$/.test( hookName ) ) {
+		console.error( 'The hook name can only contain numbers, letters, dashes, periods and underscores.' );
 		return false;
 	}
 
