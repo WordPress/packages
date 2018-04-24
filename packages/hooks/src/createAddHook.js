@@ -32,7 +32,7 @@ function createAddHook( hooks ) {
 			return;
 		}
 
-		if ( namespace && ! validateNamespace( namespace ) ) {
+		if ( false !== namespace && ! validateNamespace( namespace ) ) {
 			return;
 		}
 
