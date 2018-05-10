@@ -1,30 +1,30 @@
 {
-  "name": "@wordpress/npm-package-json-lint-config",
-  "version": "0.1.0",
-  "description": "WordPress npm-package-json-lint shareable config",
-  "author": "WordPress",
-  "license": "GPL-2.0-or-later",
-  "keywords": [
-    "wordpress",
-    "npm-package-json-lint",
-    "npm-package-json-lint-config"
-  ],
-  "homepage": "https://github.com/WordPress/packages/tree/master/packages/npm-package-json-lint-config/README.md",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/WordPress/packages.git"
-  },
+	"name": "@wordpress/npm-package-json-lint-config",
+	"version": "0.1.0",
+	"description": "WordPress npm-package-json-lint shareable config",
+	"author": "WordPress",
+	"license": "GPL-2.0-or-later",
+	"keywords": [
+		"wordpress",
+		"npm-package-json-lint",
+		"npm-package-json-lint-config"
+	],
+	"homepage": "https://github.com/WordPress/packages/tree/master/packages/npm-package-json-lint-config/README.md",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/WordPress/packages.git"
+	},
 	"bugs": {
-    "url": "https://github.com/WordPress/packages/issues"
-  },
+		"url": "https://github.com/WordPress/packages/issues"
+	},
 	"main": "index.js",
-  "peerDependencies": {
-    "npm-package-json-lint": ">= 3.0.0-alpha2"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
-  }
+	"peerDependencies": {
+		"npm-package-json-lint": ">= 3.0.0-alpha2"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"scripts": {
+		"test": "echo \"Error: run tests from root\" && exit 1"
+	}
 }
