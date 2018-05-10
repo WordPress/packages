@@ -4,6 +4,9 @@
 		"require-publishConfig": "error",
 		"valid-values-author": ["error", [
 			"WordPress"
+		]],
+		"valid-values-publishConfig": ["error", [
+			{"access": "public"}
 		]]
 	}
 }
