@@ -14,7 +14,7 @@
 		"is-plain-obj": "^1.1.0",
 		"lerna": "^2.9.0",
 		"mkdirp": "^0.5.1",
-		"npm-package-json-lint": "^3.0.0-alpha2",
+		"npm-package-json-lint": "^3.0.0-alpha3",
 		"npm-run-all": "^4.1.2",
 		"path-type": "^3.0.0",
 		"rimraf": "^2.6.1",
@@ -38,7 +38,10 @@
 				[
 					"WordPress"
 				]
-			]
+			],
+			"valid-values-publishConfig": ["error", [
+				{"access": "public"}
+			]]
 		}
 	},
 	"scripts": {
