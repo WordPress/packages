@@ -105,8 +105,8 @@ modules.forEach( ( path ) => {
 		process.exit( 1 );
 	}
 
-	const package = require( filename );
-	const license = package.license || ( package.licenses && package.licenses.map( ( l ) => l.type ).join( ' OR ' ) );
+	const packageInfo = require( filename );
+	const license = packageInfo.license || ( packageInfo.licenses && packageInfo.licenses.map( ( l ) => l.type ).join( ' OR ' ) );
 	let licenseType = typeof license === 'object' ? license.type : license;
 
 	if ( licenseType === undefined ) {
@@ -142,6 +142,6 @@ modules.forEach( ( path ) => {
 
 	if ( ! allowed ) {
 		process.exitCode = 1;
-		process.stdout.write( `${ ERROR } Module ${ package.name } has an incompatible license '${ licenseType }'.\n` );
+		process.stdout.write( `${ ERROR } Module ${ packageInfo.name } has an incompatible license '${ licenseType }'.\n` );
 	}
 } );
