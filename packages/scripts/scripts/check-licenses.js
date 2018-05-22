@@ -13,7 +13,8 @@ process.on('unhandledRejection', err => {
  * External dependencies
  */
 const spawn = require( 'cross-spawn' );
-const existsSync = require( 'fs' ).existsSync;
+const { existsSync, readFileSync } = require( 'fs' );
+const chalk = require( 'chalk' );
 
 /**
  * Internal dependencies
@@ -24,6 +25,8 @@ const {
 	hasProjectFile,
 	hasPackageProp,
 } = require( '../utils' );
+
+const ERROR = chalk.reset.inverse.bold.red( ' ERROR ' );
 
 const args = getCliArgs();
 const prod = hasCliArg( '--prod' ) || hasCliArg( '--production' );
@@ -55,6 +58,17 @@ const licenses = [
 	...gpl2Licenses,
 	...( gpl2 ?  [] : ossLicenses ),
 ];
+
+const licenseFiles = [
+	'LICENSE',
+	'LICENSE.md',
+	'MIT-LICENSE.txt',
+];
+
+const licenseFileStrings = {
+	BSD: 'Redistributions in binary form must reproduce the above copyright notice,',
+	MIT: 'Permission is hereby granted, free of charge,',
+};
 
 const checkLicense = ( allowedLicense, licenseType ) => {
 	if ( allowedLicense === licenseType ) {
@@ -104,7 +118,31 @@ modules.forEach( ( path ) => {
 
 	const package = require( filename );
 	const license = package.license || ( package.licenses && package.licenses.map( ( l ) => l.type ).join( ' OR ' ) );
-	const licenseType = typeof license === 'object' ? license.type : license;
+	let licenseType = typeof license === 'object' ? license.type : license;
+
+	if ( licenseType === undefined ) {
+		licenseType = licenseFiles.reduce( ( detectedType, licenseFile )  => {
+			if ( detectedType ) {
+				return detectedType;
+			}
+
+			const licensePath = path + '/' + licenseFile;
+
+			if ( existsSync( licensePath ) ) {
+				const licenseText = readFileSync( licensePath ).toString();
+
+				return Object.keys( licenseFileStrings ).reduce( ( detectedType, licenseStringType ) => {
+					const licenseFileString = licenseFileStrings[ licenseStringType ];
+
+					if ( licenseText.includes( licenseFileString ) ) {
+						return licenseStringType;
+					}
+
+					return detectedType;
+				}, detectedType );
+			}
+		}, false );
+	}
 
 	const allowed = licenses.reduce( ( satisfied, allowedLicense ) => {
 		if ( checkLicense( allowedLicense, licenseType ) ) {
@@ -114,6 +152,7 @@ modules.forEach( ( path ) => {
 	}, false );
 
 	if ( ! allowed ) {
-		console.log( package.name, licenseType );
+		process.exitCode = 1;
+		process.stdout.write( `${ ERROR } Module ${ package.name } has an incompatible license '${ licenseType }'.\n` );
 	}
 } );
