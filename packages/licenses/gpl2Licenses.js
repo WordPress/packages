@@ -1,0 +1,16 @@
+module.exports = [
+	'BSD',
+	'BSD-2-Clause',
+	'BSD-3-Clause',
+	'BSD-like',
+	'CC-BY-3.0',
+	'CC-BY-4.0',
+	'CC0-1.0',
+	'GPL-2.0-or-later',
+	'ISC',
+	'MIT',
+	'MIT/X11',
+	'Public Domain',
+	'Unlicense',
+	'WTFPL',
+];

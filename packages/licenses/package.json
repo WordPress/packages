@@ -1,0 +1,34 @@
+{
+	"name": "@wordpress/licenses",
+	"version": "0.1.0",
+	"description": "WordPress Licenses",
+	"author": "WordPress",
+	"license": "GPL-2.0-or-later",
+	"keywords": [
+		"wordpress",
+		"gpl",
+		"gpl2",
+		"license",
+		"licenses",
+		"oss",
+		"spdx"
+	],
+	"homepage": "https://github.com/WordPress/packages/tree/master/packages/licenses/README.md",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/WordPress/packages.git"
+	},
+	"bugs": {
+		"url": "https://github.com/WordPress/packages/issues"
+	},
+	"files": [
+		"gpl2Licenses",
+		"OSSLicenses"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"scripts": {
+		"test": "echo \"Error: run tests from root\" && exit 1"
+	}
+}
