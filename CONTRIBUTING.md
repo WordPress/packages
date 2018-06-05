@@ -60,6 +60,8 @@ If you're publishing a new package, ensure that its `package.json` file contains
 	}
 ```
 
+Update the packages `CHANGELOG.md` file with the forthcoming version number (`x.y.z`) along with the notable changes included in the release.
+
 ### Development release
 
 Run the following command to release a dev version of the outdated packages, replacing "123456" with your 2FA code. Make sure you're using a freshly generated 2FA code, rather than one that's about to timeout. This is a little cumbersome, but helps to prevent the release process from dying mid-deploy.
