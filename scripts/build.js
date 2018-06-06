@@ -11,7 +11,7 @@
 const fs = require( 'fs' );
 const path = require( 'path' );
 const glob = require( 'glob' );
-const babel = require( 'babel-core' );
+const babel = require( '@babel/core' );
 const chalk = require( 'chalk' );
 const mkdirp = require( 'mkdirp' );
 
@@ -30,7 +30,7 @@ const ERROR = chalk.reset.inverse.bold.red( ' ERROR ' );
 /**
  * Babel Configuration
  */
-const babelDefaultConfig = require( '../packages/babel-preset-default' );
+const babelDefaultConfig = require( '../packages/babel-preset-default' )();
 babelDefaultConfig.babelrc = false;
 const presetEnvConfig = babelDefaultConfig.presets[ 0 ][ 1 ];
 const babelConfigs = {
@@ -38,7 +38,7 @@ const babelConfigs = {
 		{},
 		babelDefaultConfig,
 		{ presets: [
-			[ 'env', Object.assign(
+			[ '@babel/preset-env', Object.assign(
 				{},
 				presetEnvConfig,
 				{ modules: 'commonjs' },

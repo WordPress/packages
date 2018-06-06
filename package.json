@@ -5,7 +5,7 @@
 		"npm": ">=5.0.0"
 	},
 	"devDependencies": {
-		"babel-core": "^6.26.0",
+		"@babel/core": "^7.0.0-beta.49",
 		"benchmark": "^2.1.4",
 		"chalk": "^2.3.2",
 		"check-node-version": "^3.1.1",
@@ -19,14 +19,14 @@
 		"rimraf": "^2.6.1",
 		"symlink-or-copy": "^1.2.0"
 	},
-	"babel": {
-		"presets": "@wordpress/default"
-	},
 	"jest": {
 		"collectCoverageFrom": [
 			"packages/*/**/*.js"
 		],
-		"preset": "@wordpress/jest-preset-default"
+		"preset": "@wordpress/jest-preset-default",
+		"transform": {
+			"^.+\\.jsx?$": "<rootDir>/packages/scripts/config/babel-transform.js"
+		}
 	},
 	"npmPackageJsonLintConfig": {
 		"extends": "@wordpress/npm-package-json-lint-config",

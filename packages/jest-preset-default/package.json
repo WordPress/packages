@@ -27,11 +27,10 @@
 	"main": "index.js",
 	"dependencies": {
 		"@wordpress/jest-console": "^1.0.7",
-		"babel-jest": "^22.1.0",
+		"babel-jest": "^23.0.1",
 		"enzyme": "^3.3.0",
 		"enzyme-adapter-react-16": "^1.1.1",
-		"jest-enzyme": "^4.0.2",
-		"pegjs": "^0.10.0"
+		"jest-enzyme": "^6.0.1"
 	},
 	"peerDependencies": {
 		"jest": ">=22"

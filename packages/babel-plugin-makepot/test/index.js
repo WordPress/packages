@@ -1,8 +1,8 @@
 /**
  * External dependencies
  */
-import { transform } from 'babel-core';
-import traverse from 'babel-traverse';
+import { transform } from '@babel/core';
+import traverse from '@babel/traverse';
 
 /**
  * Internal dependencies
