@@ -1,7 +1,6 @@
-const env = process.env.BABEL_ENV || process.env.NODE_ENV;
-const isTestEnv = env === 'test';
+module.exports = function( api ) {
+	const isTestEnv = api.env() === 'test';
 
-module.exports = function() {
 	return {
 		presets: [
 			! isTestEnv && [ '@babel/preset-env', {

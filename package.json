@@ -23,10 +23,7 @@
 		"collectCoverageFrom": [
 			"packages/*/**/*.js"
 		],
-		"preset": "@wordpress/jest-preset-default",
-		"transform": {
-			"^.+\\.jsx?$": "<rootDir>/packages/scripts/config/babel-transform.js"
-		}
+		"preset": "@wordpress/jest-preset-default"
 	},
 	"npmPackageJsonLintConfig": {
 		"extends": "@wordpress/npm-package-json-lint-config",
@@ -50,13 +47,14 @@
 	},
 	"scripts": {
 		"build-clean": "rimraf ./packages/*/build ./packages/*/build-module",
-		"prebuild": "npm-run-all check-engines build-clean",
+		"prebuild": "run-s check-engines build-clean",
 		"build": "node ./scripts/build.js",
 		"check-engines": "check-node-version --package",
 		"create-symlinks": "node ./scripts/create-symlinks.js",
 		"lerna-bootstrap": "lerna bootstrap --hoist",
 		"lint:pkg-json": "wp-scripts lint-pkg-json ./packages",
-		"postinstall": "npm-run-all lerna-bootstrap create-symlinks build",
+		"preinstall": "npx rimraf ./node_modules/@wordpress/*",
+		"postinstall": "run-s lerna-bootstrap create-symlinks build",
 		"pretest": "npm run lint:pkg-json",
 		"test": "wp-scripts test-unit-js",
 		"test:coverage": "npm run test -- --coverage",
