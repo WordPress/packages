@@ -117,10 +117,10 @@ function buildFileFor( file, silent, environment ) {
 	if ( ! silent ) {
 		process.stdout.write(
 			chalk.green( '  \u2022 ' ) +
-			path.relative( PACKAGES_DIR, file ) +
-			chalk.green( ' \u21D2 ' ) +
-			path.relative( PACKAGES_DIR, destPath ) +
-			'\n'
+				path.relative( PACKAGES_DIR, file ) +
+				chalk.green( ' \u21D2 ' ) +
+				path.relative( PACKAGES_DIR, destPath ) +
+				'\n'
 		);
 	}
 }
