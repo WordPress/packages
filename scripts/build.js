@@ -30,20 +30,23 @@ const ERROR = chalk.reset.inverse.bold.red( ' ERROR ' );
 /**
  * Babel Configuration
  */
-const babelDefaultConfig = require( '../packages/babel-preset-default' )();
-babelDefaultConfig.babelrc = false;
+const { options: babelDefaultConfig } = babel.loadPartialConfig( {
+	presets: [ '@wordpress/babel-preset-default' ],
+} );
 const presetEnvConfig = babelDefaultConfig.presets[ 0 ][ 1 ];
 const babelConfigs = {
 	main: Object.assign(
 		{},
 		babelDefaultConfig,
-		{ presets: [
-			[ '@babel/preset-env', Object.assign(
-				{},
-				presetEnvConfig,
-				{ modules: 'commonjs' },
-			) ],
-		] }
+		{
+			presets: [
+				[ '@babel/preset-env', Object.assign(
+					{},
+					presetEnvConfig,
+					{ modules: 'commonjs' },
+				) ],
+			]
+		}
 	),
 	module: babelDefaultConfig,
 };
@@ -114,10 +117,10 @@ function buildFileFor( file, silent, environment ) {
 	if ( ! silent ) {
 		process.stdout.write(
 			chalk.green( '  \u2022 ' ) +
-				path.relative( PACKAGES_DIR, file ) +
-				chalk.green( ' \u21D2 ' ) +
-				path.relative( PACKAGES_DIR, destPath ) +
-				'\n'
+			path.relative( PACKAGES_DIR, file ) +
+			chalk.green( ' \u21D2 ' ) +
+			path.relative( PACKAGES_DIR, destPath ) +
+			'\n'
 		);
 	}
 }
