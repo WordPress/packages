@@ -1,3 +1,7 @@
+⚠️ **ARCHIVED**: This repository is no longer actively maintained. Source code and issue management for WordPress modules can be found at the [Gutenberg repository](https://github.com/WordPress/gutenberg/). ⚠️
+
+---
+
 # packages
 
 [![Build Status](https://img.shields.io/travis/WordPress/packages/master.svg)](https://travis-ci.org/WordPress/packages)
